@@ -1,0 +1,10 @@
+[Unit]
+Description=Template Service
+
+[Service]
+Type=simple
+PIDFile=/var/run/template-service.pid
+ExecStart=/bin/template-service
+
+[Install]
+WantedBy=multi-user.target

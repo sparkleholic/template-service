@@ -4,6 +4,10 @@ A template C/C++ service.
 
 Maintained at https://github.com/Pelagicore/template-service
 
+Dependencies
+------------
+- [template-library](https://github.com/Pelagicore/template-library)
+
 License and Copyright
 ---------------------
 Copyright (C) 2017 Pelagicore AB

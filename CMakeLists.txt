@@ -1,13 +1,7 @@
 cmake_minimum_required(VERSION 3.2)
 
-# Project name
-project(template-service)
-
-# Project version
-set(PROJECT_MAJOR_VERSION 0)
-set(PROJECT_MINOR_VERSION 1)
-set(PROJECT_PATCH_LEVEL 0)
-set(PROJECT_VERSION ${PROJECT_MAJOR_VERSION}.${PROJECT_MINOR_VERSION}.${PROJECT_PATCH_LEVEL})
+# Project name and version
+project(template-service VERSION 0.1.0)
 
 # Use a pkg-config module for CMake
 find_package(PkgConfig)

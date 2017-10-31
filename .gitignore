@@ -1,4 +1,5 @@
 # Ignore CMake cache files
+CMakeLists.txt.user
 CMakeCache.txt
 **/CMakeFiles/
 **/*.cmake

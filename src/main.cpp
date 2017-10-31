@@ -9,17 +9,24 @@
  *
  */
 
+#ifdef TEMPLATE_LIBRARY
 #include <template-library/templatepublicclass.h>
+
+void testTemplateLibrary() {
+    std::shared_ptr<TemplatePublicClass> templatePublicInstance(new TemplatePublicClass());
+    templatePublicInstance->templateFunction();
+}
+#endif
 
 #include <iostream>
 #include <memory>
 
+
 int main(int argc, char const **argv)
 {
-    std::shared_ptr<TemplatePublicClass> templatePublicInstance(new TemplatePublicClass());
-    templatePublicInstance->templateFunction();
-
     std::cout << "Hello from Template Service!\n";
-
+#ifdef TEMPLATE_LIBRARY
+    testTemplateLibrary();
+#endif
     return 0;
 }

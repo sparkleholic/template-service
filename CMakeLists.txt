@@ -1,7 +1,7 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.4)
 
 # Project name and version
-project(template-service VERSION 0.1.0)
+project(template-service VERSION 0.1.0 LANGUAGES CXX)
 
 # Use a pkg-config module for CMake
 find_package(PkgConfig)
@@ -13,7 +13,8 @@ include(GNUInstallDirs)
 include(FeatureSummary)
 
 # C++ compiler flags
-add_compile_options(-std=c++14)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Options on enabling / disabling template-library at compile-time
 option(ENABLE_TEMPLATE_LIBRARY "Enables the template library features" OFF)

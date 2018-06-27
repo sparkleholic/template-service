@@ -16,6 +16,22 @@ include(FeatureSummary)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+# C++ compiler flags for arm FPU
+if (NOT ARCH OR ARCH STREQUAL "" OR ARCH STREQUAL "native" OR ARCH STREQUAL "default")
+  set(ARCH_ID "${CMAKE_SYSTEM_PROCESSOR}")
+else()
+  set(ARCH_ID "${ARCH}")
+endif()
+string(TOLOWER "${ARCH_ID}" ARM_ID)
+string(SUBSTRING "${ARM_ID}" 0 3 ARM_TEST)
+if (ARM_TEST STREQUAL "arm")
+    CHECK_CXX_ACCEPTS_FLAG(-mfloat-abi=hard CXX_ACCEPTS_MFLOAT_HARD)
+    if(CXX_ACCEPTS_MFLOAT_HARD)
+        message(STATUS "Setting FPU Flags for ARM Processors")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mfloat-abi=hard")
+    endif()
+endif()
+
 # Options on enabling / disabling template-library at compile-time
 option(ENABLE_TEMPLATE_LIBRARY "Enables the template library features" OFF)
 add_feature_info("Enable Template Library" ENABLE_TEMPLATE_LIBRARY "Provides access to Template Library classes and methods")
